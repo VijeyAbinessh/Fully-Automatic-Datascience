@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>📊 Auto Data Reporter</h2>
+<form method="post" enctype="multipart/form-data">
+  <input type="file" name="file" required>
+  <button type="submit">Generate Report</button>
+</form>
+
+{% for f in files %}
+  <div style="margin-bottom:10px;">
+    <b>{{ f }}</b><br>
+
+    <a href="/download/{{ f }}">
+      <button>⬇ Download</button>
+    </a>
+
+    {% if f.endswith(".md") %}
+    <a href="/view/{{ f }}" target="_blank">
+      <button>👁 View</button>
+    </a>
+    {% endif %}
+  </div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,208 @@
+/* -----------------------------
+   Global Styles
+------------------------------ */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* -----------------------------
+   Navigation Bar
+------------------------------ */
+nav {
+  background: #0d6efd;
+  padding: 14px 24px;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* -----------------------------
+   Main Container
+------------------------------ */
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* -----------------------------
+   Headings
+------------------------------ */
+h2 {
+  color: #0d6efd;
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-top: 30px;
+  color: #222;
+}
+
+/* -----------------------------
+   Text & Lists
+------------------------------ */
+p {
+  margin: 10px 0 16px;
+}
+
+ul, ol {
+  padding-left: 22px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* -----------------------------
+   Forms
+------------------------------ */
+form {
+  margin-top: 15px;
+}
+
+input[type="file"],
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  max-width: 520px;
+  padding: 10px 12px;
+  margin-top: 6px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-top: 10px;
+}
+
+/* -----------------------------
+   Buttons
+------------------------------ */
+button {
+  background: #0d6efd;
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0b5ed7;
+}
+
+button:disabled {
+  background: #9bbcff;
+  cursor: not-allowed;
+}
+
+/* -----------------------------
+   Feature Sections / Cards
+------------------------------ */
+.feature-box {
+  background: #f8f9fb;
+  border: 1px solid #e3e6ea;
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+/* -----------------------------
+   Output / Results
+------------------------------ */
+.output-box {
+  background: #eef5ff;
+  border-left: 5px solid #0d6efd;
+  padding: 15px 18px;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+
+.output-box a {
+  color: #0d6efd;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.output-box a:hover {
+  text-decoration: underline;
+}
+
+/* -----------------------------
+   Tables (if any)
+------------------------------ */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 15px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+th {
+  background: #f1f3f6;
+}
+
+/* -----------------------------
+   Alerts / Messages
+------------------------------ */
+.alert {
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+
+.alert-success {
+  background: #e6f4ea;
+  color: #146c43;
+}
+
+.alert-warning {
+  background: #fff3cd;
+  color: #664d03;
+}
+
+/* -----------------------------
+   Footer (Optional)
+------------------------------ */
+footer {
+  text-align: center;
+  color: #777;
+  font-size: 13px;
+  margin: 40px 0 10px;
+}

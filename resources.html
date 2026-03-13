@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>🔍 Resource Finder</h2>
+
+<form method="post">
+  <textarea name="problem" rows="4" cols="60" required
+    placeholder="Describe your ML / AI problem here..."></textarea><br><br>
+  <button type="submit">Find Resources</button>
+</form>
+
+{% if result %}
+<hr>
+
+<h3>📌 Problem Summary</h3>
+<p>{{ result.problem_summary }}</p>
+
+<h3>🧠 Task Type</h3>
+<p><b>{{ result.task_type }}</b></p>
+
+<h3>📦 Candidate Datasets</h3>
+{% if result.candidate_datasets %}
+  <ul>
+  {% for ds in result.candidate_datasets %}
+    <li>
+      <b>{{ ds.name }}</b><br>
+      {{ ds.description }}<br>
+      🔗 <a href="{{ ds.link }}" target="_blank">{{ ds.link }}</a>
+    </li><br>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No datasets found.</p>
+{% endif %}
+
+<h3>💻 Baseline GitHub Repositories</h3>
+{% if result.baseline_code_repos %}
+  <ul>
+  {% for repo in result.baseline_code_repos %}
+    <li>
+      <b>{{ repo.name }}</b> ⭐ {{ repo.stars }}<br>
+      {{ repo.description }}<br>
+      🔗 <a href="{{ repo.link }}" target="_blank">{{ repo.link }}</a>
+    </li><br>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No repositories found.</p>
+{% endif %}
+
+<h3>🤖 Recommended Models</h3>
+<ul>
+{% for m in result.recommended_models %}
+  <li><b>{{ m.name }}</b> ({{ m.framework }}) – {{ m.when }}</li>
+{% endfor %}
+</ul>
+
+<h3>📊 Evaluation Metrics</h3>
+<ul>
+{% for m in result.evaluation_metrics %}
+  <li>{{ m }}</li>
+{% endfor %}
+</ul>
+
+<h3>➡ Next Steps</h3>
+<ul>
+{% for step in result.next_steps %}
+  <li>{{ step }}</li>
+{% endfor %}
+</ul>
+
+{% endif %}
+
+{% endblock %}

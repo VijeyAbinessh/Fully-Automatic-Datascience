@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>🤖 Auto Model Trainer</h2>
+
+<!-- STAGE 1: UPLOAD -->
+<form method="post" enctype="multipart/form-data">
+  <input type="file" name="file" required>
+  <button type="submit" name="upload">📤 Upload Dataset</button>
+</form>
+
+<hr>
+
+{% if columns %}
+<!-- STAGE 2: TRAIN -->
+<form method="post">
+
+  <input type="hidden" name="file_path" value="{{ file_path }}">
+
+  <label>🎯 Target Column:</label><br>
+  <select name="target" required>
+    {% for col in columns %}
+      <option value="{{ col }}">{{ col }}</option>
+    {% endfor %}
+  </select><br><br>
+
+  <label>📥 Independent Columns:</label><br>
+  {% for col in columns %}
+    <input type="checkbox" name="features" value="{{ col }}"> {{ col }}<br>
+  {% endfor %}
+  <br>
+
+  <label>📊 Task:</label><br>
+  <input type="radio" name="task" value="classification" required> Classification<br>
+  <input type="radio" name="task" value="regression"> Regression<br><br>
+
+  <label>🤖 Model:</label><br>
+  <select name="model">
+    <option value="1">Linear / Logistic</option>
+    <option value="2">Decision Tree</option>
+    <option value="3">Random Forest</option>
+  </select><br><br>
+
+  <button type="submit" name="train">🚀 Train Model</button>
+</form>
+{% endif %}
+
+{% if model_file %}
+<hr>
+<h3>✅ Training Complete</h3>
+
+<p>
+Model:
+<a href="/download/{{ model_file }}">⬇ Download</a>
+</p>
+
+<h4>📈 Metrics</h4>
+<ul>
+{% for k, v in metrics.items() %}
+  <li>{{ k }} : {{ v }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}

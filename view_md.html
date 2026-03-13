@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>📄 {{ filename }}</h2>
+
+<div style="
+  background:#fff;
+  padding:20px;
+  border-radius:8px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+">
+  {{ content | safe }}
+</div>
+
+<br>
+<a href="/download/{{ filename }}">
+  <button>⬇ Download</button>
+</a>
+
+{% endblock %}
